@@ -25,7 +25,7 @@
     // loop over time blocks
     $('.time-block').each(function () {
       var sectionHour = parseInt($(this).attr('id').split('-')[1]);
-
+      console.log(parseInt($(this).attr('id').split('-')[1]));
       //checks is section is in the past, present or future and assigns appropriate class
       if(sectionHour < currentHour){
         $(this).addClass('past');
@@ -48,11 +48,12 @@ $('#hour-9 .description').val(localStorage.getItem('hour-9'));
 $('#hour-10 .description').val(localStorage.getItem('hour-10'));
 $('#hour-11 .description').val(localStorage.getItem('hour-11'));
 $('#hour-12 .description').val(localStorage.getItem('hour-12'));
-$('#hour-1 .description').val(localStorage.getItem('hour-1'));
-$('#hour-2 .description').val(localStorage.getItem('hour-2'));
-$('#hour-3 .description').val(localStorage.getItem('hour-3'));
-$('#hour-4 .description').val(localStorage.getItem('hour-4'));
-$('#hour-5 .description').val(localStorage.getItem('hour-5'));
+$('#hour-1 .description').val(localStorage.getItem('hour-13'));
+$('#hour-2 .description').val(localStorage.getItem('hour-14'));
+$('#hour-3 .description').val(localStorage.getItem('hour-15'));
+$('#hour-4 .description').val(localStorage.getItem('hour-16'));
+$('#hour-5 .description').val(localStorage.getItem('hour-17'));
+$('#hour-5 .description').val(localStorage.getItem('hour-18'));
   hourUpdater();
   setInterval(hourUpdater, 15000);
   // load any saved data from localStorage
