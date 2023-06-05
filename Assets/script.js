@@ -14,12 +14,6 @@
     var time = $(this).parent().attr('id');
     //saves desc and time to local storage
     localStorage.setItem(desc, time);
-    //shows notification
-    $('.notification').addClass('show');
-    //removed show class after 3 seconds
-    setTimeout(function(){
-      $('notification').removeClass('show');
-    }, 5000);
   });
   // TODO: Add code to apply the past, present, or future class to each time
   // block by comparing the id to the current hour. HINTS: How can the id
@@ -30,6 +24,19 @@
     var currentHour = dayjs().hour();
     // loop over time blocks
     $('.time-block').each(function () {
+      var sectionHour = parseInt($(this).attr('id').splite('-')[1]);
+
+      //checks is section is in the past, present or future and assigns appropriate class
+      if(sectionHour < currentHour){
+        $(this).addClass('past');
+      }else if(sectionHour === currentHour){
+        $(this).removeClass('past');
+        $(this).addClass('present');
+      }else{
+        $(this).removeClass('past');
+        $(this).removeClass('present');
+        $(this).addClass('future');
+      }
     });
   }
   // TODO: Add code to get any user input that was saved in localStorage and set
