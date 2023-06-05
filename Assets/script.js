@@ -13,7 +13,7 @@
     var desc = $(this).siblings('.description').val();
     var time = $(this).parent().attr('id');
     //saves desc and time to local storage
-    localStorage.setItem(desc, time);
+    localStorage.setItem(time, desc);
   });
   // TODO: Add code to apply the past, present, or future class to each time
   // block by comparing the id to the current hour. HINTS: How can the id
@@ -24,7 +24,7 @@
     var currentHour = dayjs().hour();
     // loop over time blocks
     $('.time-block').each(function () {
-      var sectionHour = parseInt($(this).attr('id').splite('-')[1]);
+      var sectionHour = parseInt($(this).attr('id').split('-')[1]);
 
       //checks is section is in the past, present or future and assigns appropriate class
       if(sectionHour < currentHour){
@@ -53,11 +53,9 @@ $('#hour-2 .description').val(localStorage.getItem('hour-2'));
 $('#hour-3 .description').val(localStorage.getItem('hour-3'));
 $('#hour-4 .description').val(localStorage.getItem('hour-4'));
 $('#hour-5 .description').val(localStorage.getItem('hour-5'));
-
   hourUpdater();
   setInterval(hourUpdater, 15000);
   // load any saved data from localStorage
-  $('#hour-9 .description').val(localStorage.getItem('hour-9'));
   // display current day on page
   $('#currentDay').text(dayjs().format('dddd, MMMM D, YYYY, hh:mm A'));
 });
